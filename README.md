@@ -2,7 +2,43 @@
 
 Versión de definición: 0.1 · 7 de octubre de 2026. Nombre de trabajo, no marca final.
 
-Este paquete especifica el producto y el trabajo; **no contiene una app implementada ni un modelo validado**. Copiar su contenido a la raíz del repositorio del proyecto, conservando `docs/`. Si ya existen instrucciones, integrarlas sin sobrescribir trabajo ajeno. No se ha inspeccionado la base Supabase del compañero.
+El repositorio contiene el recorrido V0-UX de demostración, persistencia local, copias/restauración y harness de verificación. El espacio real permite guardar pendientes, pero todavía no hay catálogo local revisado ni modelo aprobado para CAMPO. No se ha inspeccionado la base Supabase del compañero.
+
+## Desarrollo local
+
+Usar Node **24.14.0** (`.nvmrc`) y npm **11.9.0**. Si se dispone de nvm: `nvm install && nvm use`. Las versiones se comprueban al instalar; el Node global puede ser distinto.
+
+```sh
+npm ci
+npm run dev
+```
+
+Abrir la URL local que imprime Vite. Para verificar el build:
+
+```sh
+npx playwright install chromium webkit
+npm run verify
+```
+
+La descarga de navegadores es solo para desarrollo; no se envían al iPhone. `check` ejecuta tipos, ESLint, reglas del fixture demo y tests de dominio. `build` genera `dist/`. `test:e2e` requiere ese build y lo sirve en loopback, puerto 4173, con Chromium y WebKit. `verify` encadena los tres; no prueba un teléfono físico.
+
+Para el iPhone: `npm run build` y `npm run preview:local` siguiendo la [guía HTTPS](docs/04-arquitectura.md#guía-https-maciphone-t00). Los certificados son locales e ignorados por Git. Añadir a pantalla de inicio desde Safari y abrir Ajustes hasta que indique «Interfaz UX preparada sin conexión». La caché incluye interfaz y demo, nunca pesos/runtime de IA. Actualizar requiere una acción explícita en Ajustes. Esto no certifica autonomía CAMPO ni conservación indefinida de datos: exportar copias regularmente.
+
+Los escenarios y el feedback exportable están en Ajustes. Los eventos locales son opcionales y no se envían. Véase la [guía de sesión para 3–5 participantes](docs/07-validacion.md#preparación-de-la-sesión-v0-ux). Iconos propios derivados de `public/assets/icon.svg`; para regenerar los PNG: `node scripts/generate-icons.mjs` (Chromium de Playwright).
+
+### Probar V0-UX en el Mac
+
+1. Ejecutar `npm run dev` y abrir la URL indicada. Pulsar **Probar demostración**; el nombre es opcional.
+2. En Explorar elegir una colección y consultar su regla. Abrir **Escanear**, elegir una foto local de prueba opcional y pulsar **Simular captura**.
+3. Elegir una sugerencia, declarar municipio/contexto si procede y pulsar **Confirmar y guardar**. La revelación aparece después de persistir. Repetir la especie conserva un único descubrimiento y añade un encuentro.
+4. Abrir **Cuaderno**, consultar la foto y editar o eliminar el encuentro. Recargar para comprobar que se conserva el cuaderno y se recalcula el progreso.
+5. En **Ajustes**, exportar la copia JSON y restaurarla: se crea un perfil nuevo sin sobrescribir el anterior. Allí están escenarios, feedback y procedencia/cobertura del paquete demo. El espacio real separado solo admite pendientes hasta disponer de catálogo/modelo aprobados.
+
+T00, T02, T03 y T05 están entregadas. La parte UX de T04 incluye un manifiesto demo versionado con referencias e integridad; el catálogo curado CAMPO continúa pendiente. Las sesiones con participantes y la prueba física del iPhone siguen pendientes y no impiden esta entrega UX.
+
+Experimento T01: `npm run prepare:models` descarga/verifica los dos candidatos fijados (~26 MB de pesos, fuera de Git); `npm run build` copia el runtime local. Abrir `/tecnica` para medir ejecución sintética o `npm run probe:t01` para ambos navegadores de escritorio. El probe conserva errores y sale con código 1 si algún candidato falla. Véase [evidencia CAMPO](docs/evidencia/campo.md); no demuestra precisión ni aprobación del teléfono. El build normal no descarga pesos.
+
+Guardar fotos personales en `private/` o `personal-photos/`, backups en `backups/` y pesos en `models/`; quedan fuera de Git junto con dependencias, builds y cachés. Solo se permiten imágenes intencionales de UI, fixtures o evidencia en sus carpetas explícitas, previa revisión de contenido y licencia. El ignore no protege un archivo que ya estuviera versionado.
 
 ## Decisión de desarrollo
 

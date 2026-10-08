@@ -3,29 +3,31 @@
 Actualizado: 7 de octubre de 2026.
 
 ## Situación
-Paquete de especificaciones redactado. No hay código de aplicación, scripts npm, modelo elegido ni prueba en iPhone. La base Supabase mencionada por el usuario no ha sido inspeccionada. Este documento no certifica viabilidad del escáner.
+V0-UX implementada y verificada automáticamente: recorrido demo, perfiles separados, fotos, edición/borrado, copias, escenarios, feedback local y PWA de interfaz. T01 conserva dos candidatos fijados: Coral Birds ejecuta inferencia sintética en Mac; iNaturalist Small falla por normalización. Calidad e iPhone pendientes; V0-CAMPO no está aprobada. No se ha publicado ni inspeccionado Supabase.
+
+Review V0-UX resuelto: implementación, lockfile, harness y evidencia incluidos en el índice de Git. Reproducidos instalación y verificación desde una copia limpia del índice, sin pesos, runtime ni dependencias previas del workspace.
 
 ## Tareas
 
 | Tarea | Estado | Evidencia |
 | --- | --- | --- |
-| T00 | pendiente | — |
-| T01 | pendiente | — |
-| T02 | pendiente | — |
-| T03 | pendiente | — |
-| T04 | pendiente | — |
-| T05 | pendiente | — |
-| T06 | pendiente | — |
+| T00 | completa | `npm ci --offline --no-audit --no-fund` y `npm run verify` pasan: 4 tests de dominio + 4 E2E Chromium/WebKit; HTTPS 200 con certificado temporal validado. [Evidencia](evidencia/ux.md) |
+| T01 | pendiente de dispositivo | [Resultados de escritorio](evidencia/t01-desktop.json): Coral p95 sintético 20,1/22 ms; iNaturalist error explícito. Calidad sin evaluar. [Protocolo](evidencia/campo.md) |
+| T02 | completa | Recorrido, filtros y estados; revisión visual a 390/320 px. [Evidencia UX](evidencia/ux.md#t02t03t05--entrega-v0-ux--7-de-octubre-de-2026) |
+| T03 | completa | Transacciones/idempotencia, corrección/borrado, fotos y restauración en perfil nuevo; pruebas en IndexedDB Chromium/WebKit |
+| T04 | pendiente | Parte necesaria para UX entregada: `fauna-ux-demo@demo-1`, manifiesto, procedencia y SHA-256 validados. Catálogo curado CAMPO sin completar; fixtures sin presencia/cobertura real |
+| T05 | completa | Copia limpia del índice: `npm ci --offline --no-audit --no-fund` + `npm run verify`, 26 tests y 22 E2E. Pestaña nueva y guardado con servidor apagado en ambos motores. Guía de participantes preparada; sesiones pendientes |
+| T06 | bloqueada | Requiere T01 viable y T04; no se integra inferencia no validada |
 | T07 | pendiente | — |
 | T08 | pendiente | — |
 
 Estados permitidos: pendiente, en curso, bloqueada, pendiente de dispositivo, completa. Un resultado parcial se describe; no se marca completa la tarea con criterios pendientes.
 
 ## Siguiente acción
-T00: inspeccionar repositorio, preservar instrucciones existentes y crear base ejecutable y scripts reales. Luego T01 acotado; avanzar UX independiente si falta prueba física.
+V0-UX entregada: probar el recorrido según [README](../README.md#probar-v0-ux-en-el-mac) y realizar las sesiones con participantes. Este encargo se detiene aquí. Próximo trabajo CAMPO, si se solicita: completar catálogo curado T04 y prueba física/calidad T01 según [protocolo](evidencia/campo.md). La caché UX no acredita identificación ni paquete CAMPO.
 
 ## Bloqueos conocidos
-Ninguno para iniciar T00/UX. Identificación móvil, contenido local y pruebas de iPhone todavía por validar.
+Sin bloqueo para preparar T04. Para el iPhone falta confiar el certificado según [guía HTTPS](04-arquitectura.md#guía-https-maciphone-t00); no se modificó el llavero. Registrar iOS/espacio libre, instalación física y calidad del modelo. Los participantes y la prueba física no se sustituyen por Playwright.
 
-## Plantilla de actualización breve
-Tarea y resultado; archivos o build; comando/evidencia y resultado; limitación concreta; siguiente acción. Mantener un resumen, no un diario de todos los comandos.
+## Última verificación
+7 de octubre, corrección del review: desde copia limpia del índice, instalación de 461 paquetes y `npm run verify` aprobados: tipos/lint/datos/build, 26 tests + 22 E2E. Corregidos retorno directo y conservación de filtros de municipio/lista/cuaderno; real rechaza atribución a modelo no aprobado. Pruebas de rollback de corrección, foto corregida/restaurada, progreso tras edición/borrado y aislamiento en ambos motores. Precaché: 22 entradas, 516,26 KiB. `git diff --cached --check` limpio. [Detalle](evidencia/ux.md#corrección-del-review-v0-ux--7-de-octubre-de-2026). Sin commit, push ni publicación; fotos personales, certificados, pesos y runtime fuera del índice. Limitaciones físicas y CAMPO sin cambios.

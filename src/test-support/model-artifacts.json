@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "runtime": "@mediapipe/tasks-vision@1.1.0",
+  "models": [
+    {
+      "id": "inat-small",
+      "name": "iNaturalist Small 2 · v25.01.15",
+      "license": "MIT",
+      "inputSize": 299,
+      "files": [
+        {
+          "name": "model.tflite",
+          "url": "https://github.com/inaturalist/model-files/releases/download/v25.01.15/INatVision_Small_2_fact256_8bit.tflite",
+          "bytes": 22197168,
+          "sha256": "eae277b24efa629b998d5f9c091da0576162cb1aad498786087acd001dc86d2c"
+        },
+        {
+          "name": "taxonomy.csv",
+          "url": "https://github.com/inaturalist/model-files/releases/download/v25.01.15/taxonomy.csv",
+          "bytes": 79845,
+          "sha256": "bd18483667d8a0ce7c1676ad4160a61589390ef090b0fb8092da50832dcecb69"
+        },
+        {
+          "name": "LICENSE",
+          "url": "https://raw.githubusercontent.com/inaturalist/model-files/main/LICENSE",
+          "bytes": 1068,
+          "sha256": "bc6562808f370f96fb449035de6098fe078157584ff965f947b1007c5a0f0e0c"
+        }
+      ]
+    },
+    {
+      "id": "coral-birds",
+      "name": "Coral Birds · MobileNet V2 uint8 · 104342d",
+      "license": "Apache-2.0",
+      "inputSize": 224,
+      "files": [
+        {
+          "name": "model.tflite",
+          "url": "https://raw.githubusercontent.com/google-coral/test_data/104342d2d3480b3e66203073dac24f4e2dbb4c41/mobilenet_v2_1.0_224_inat_bird_quant.tflite",
+          "bytes": 3579500,
+          "sha256": "350fcd8cf1df1560060d464595dfed8b174b05792788052896004848d9ad04f9"
+        },
+        {
+          "name": "labels.txt",
+          "url": "https://raw.githubusercontent.com/google-coral/test_data/104342d2d3480b3e66203073dac24f4e2dbb4c41/inat_bird_labels.txt",
+          "bytes": 37146,
+          "sha256": "a16108dfe3f8daff015b87a97ab6a17e717b9b1bccd719f6d8f747746d7b9277"
+        },
+        {
+          "name": "LICENSE",
+          "url": "https://raw.githubusercontent.com/google-coral/test_data/104342d2d3480b3e66203073dac24f4e2dbb4c41/LICENSE",
+          "bytes": 11361,
+          "sha256": "f9946796a8a5bd5981565142fa42e3b0cc36aef6f80e86beaf5905b3c0fef1b5"
+        },
+        {
+          "name": "COPYRIGHT",
+          "url": "https://raw.githubusercontent.com/google-coral/test_data/104342d2d3480b3e66203073dac24f4e2dbb4c41/COPYRIGHT",
+          "bytes": 3282,
+          "sha256": "ed11966e8384c477c89f13f1ef06f3d68a634efc6ea2f9b3f12f170ad7e62e87"
+        }
+      ]
+    }
+  ]
+}

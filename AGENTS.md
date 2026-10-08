@@ -27,8 +27,8 @@ Construir V0-UX y V0-CAMPO de una colección de fauna en Madrid. Piloto en Alget
 - La IA propone; la persona confirma. Nunca convertir la confirmación en certificación científica.
 - No inventar cobertura local, imágenes autorizadas, exactitud del modelo, pruebas físicas ni benchmarks.
 
-## Harness a crear en T00
-Estos son contratos para scripts futuros; aún no existen en este paquete:
+## Harness implementado en T00
+Scripts disponibles en `package.json`; ampliar sus comprobaciones con cada capacidad:
 - `npm run dev`: desarrollo local.
 - `npm run check`: tipos + lint + reglas de datos + pruebas de dominio.
 - `npm run build`: build de producción.

@@ -1,0 +1,48 @@
+{
+  "id": "fauna-ux-demo",
+  "version": "demo-1",
+  "schemaVersion": 1,
+  "source": "demo",
+  "reviewStatus": "synthetic-fixture",
+  "provenance": "Fixture interno del piloto: ocho nombres de ejemplo y cinco listas para probar navegación y progreso. No procede de una ingesta de registros de fauna. Las ilustraciones son símbolos por grupo, no rasgos diagnósticos ni fotografías.",
+  "licenseStatement": "No se incorporan fotografías ni contenido de terceros en este paquete. No se atribuye una licencia externa a los fixtures o ilustraciones internos; su publicación requiere una revisión aparte.",
+  "coverage": {
+    "verifiedLocalPresence": false,
+    "supportedSpeciesIds": [],
+    "statement": "Cobertura de identificación real aprobada: ninguna especie. Los nombres municipales son escenarios de prueba y no acreditan presencia en Algete o San Agustín de Guadalix."
+  },
+  "speciesIds": [
+    "demo-gorrion",
+    "demo-mirlo",
+    "demo-urraca",
+    "demo-paloma",
+    "demo-conejo",
+    "demo-gato",
+    "demo-lagartija",
+    "demo-mariposa"
+  ],
+  "collectionIds": [
+    "primeros",
+    "algete",
+    "san-agustin",
+    "jardines",
+    "companeros"
+  ],
+  "models": [],
+  "files": [
+    {
+      "path": "src/test-support/catalog.ts",
+      "bytes": 3128,
+      "sha256": "1e4fa921dd2429b2e68ee8155e70c09ee16bd7d72b2654bad25de2f1f1537fde",
+      "provenance": "Nombres y reglas de ejemplo internos; sin revisión taxonómica ni registros externos.",
+      "licenseStatus": "internal-fixture-no-external-license-claimed"
+    },
+    {
+      "path": "src/ui/AnimalArt.tsx",
+      "bytes": 1132,
+      "sha256": "158b17d2762abd8e692f046d484f8a4bff0982481941eb0c21485e4ce2c63695",
+      "provenance": "Símbolos SVG internos por grupo; sin imágenes externas ni evidencia biológica.",
+      "licenseStatus": "internal-fixture-no-external-license-claimed"
+    }
+  ]
+}

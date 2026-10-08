@@ -37,6 +37,8 @@ La revelación sucede después de guardar correctamente. Nunca mostrar “guarda
 - Pistas educativas con información contrastada. No mandar a buscar especies raras o aproximarse a nidos.
 
 ## Diseño inicial a implementar
+En T02 el recorrido usa ocho fichas de ejemplo y cinco colecciones fijas, siempre bajo la banda demo. El espacio real permite registros pendientes/manuales sin reutilizar taxones del fixture. T03 conserva esos recorridos en IndexedDB por espacio; la revelación espera la transacción y el reintento conserva `operationId`. La fecha y el municipio se declaran o quedan desconocidos, sin solicitar GPS implícitamente.
+
 - Paleta orientativa: carcasa coral `#D94B43`, pantalla crema `#F7F3E8`, tinta `#172A2D`, acento turquesa `#147D79`. Verificar contraste de cada combinación; no asumir accesibilidad por estos valores.
 - Texto de lectura con tipografía del sistema. Numeración e indicadores con estilo monoespaciado; pixel art en detalles opcionales.
 - Espaciado base 4/8 px, controles táctiles de al menos 44 × 44 CSS px, una acción primaria por estado, safe areas y controles al alcance del pulgar.
@@ -51,5 +53,7 @@ Mostrar “Sugerencia”/“Confirmado por ti”, no “Verificado”. Calidad d
 
 ## Pruebas de usabilidad
 Un panel local de escenarios permite abrir: primer descubrimiento, repetición, duda, sin GPS, permiso cámara denegado, falta de espacio y fallo de paquete. Los controles no aparecen como parte de la experiencia normal. Feedback local con pantalla, comentario y versión; sin grabación automática de cámara.
+
+Contrato T05: PWA de interfaz/demo con caché local, no de modelos. Las actualizaciones requieren acción explícita desde Ajustes, nunca recargan una captura por iniciativa propia. El diagnóstico está desactivado inicialmente, separado por perfil/origen, acotado a 200 eventos y 30 comentarios; se exporta y borra sin tocar encuentros. Las duraciones son tiempo desde abrir captura hasta la acción, no latencia de inferencia. El feedback escrito es voluntario y advierte no introducir datos personales.
 
 Primera ronda: 3–5 adultos, cinco tareas de [07](07-validacion.md). Clasificar problemas por bloqueo/fricción/preferencia. Corregir primero bloqueos, luego navegación y legibilidad, finalmente efectos. Evitar un sistema A/B remoto; comparar sesiones y versiones manualmente.

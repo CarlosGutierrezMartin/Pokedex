@@ -1,0 +1,93 @@
+{
+  "date": "2026-10-07T06:46:50.178Z",
+  "input": "synthetic",
+  "qualityEvaluated": false,
+  "reports": [
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "environment": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+      "modelId": "inat-small",
+      "error": "NOT_FOUND: Input tensor has type float32: it requires specifying NormalizationOptions metadata to preprocess input images.; Initialize was not ok; StartGraph failed\n=== Source Location Trace: ===\nthird_party/mediapipe/tasks/cc/common.cc:30\nthird_party/mediapipe/tasks/cc/components/processors/image_preprocessing_graph.cc:150\nthird_party/mediapipe/tasks/cc/vision/image_classifier/image_classifier_graph.cc:147\nthird_party/mediapipe/tasks/cc/vision/image_classifier/image_classifier_graph.cc:115\nthird_party/mediapipe/framework/tool/subgraph_expansion.cc:309\nthird_party/mediapipe/framework/validated_graph_config.cc:503\nthird_party/mediapipe/framework/validated_graph_config.cc:365\nthird_party/mediapipe/framework/calculator_graph.cc:529\nresearch/drishti/app/pursuit/wasm/graph_utils.cc:95\n"
+    },
+    {
+      "browser": "chromium",
+      "version": "153.0.8010.12",
+      "environment": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+      "schemaVersion": 1,
+      "modelId": "coral-birds",
+      "source": "real",
+      "input": "synthetic",
+      "initializationMs": 202.80000001192093,
+      "firstInferenceMs": 55.10000002384186,
+      "warmInferenceMs": [
+        20.399999976158142,
+        20.100000023841858,
+        19.80000001192093,
+        19.80000001192093,
+        19.69999998807907,
+        19.5,
+        19.200000047683716,
+        19.299999952316284,
+        19.30000001192093,
+        19,
+        19.5,
+        19.19999998807907,
+        19.100000023841858,
+        19.099999964237213,
+        19,
+        19.69999998807907,
+        19.19999998807907,
+        19.100000023841858,
+        19,
+        18.899999976158142
+      ],
+      "warmP95Ms": 20.100000023841858,
+      "outputCount": 3,
+      "qualityEvaluated": false
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "environment": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15",
+      "modelId": "inat-small",
+      "error": "NOT_FOUND: Input tensor has type float32: it requires specifying NormalizationOptions metadata to preprocess input images.; Initialize was not ok; StartGraph failed\n=== Source Location Trace: ===\nthird_party/mediapipe/tasks/cc/common.cc:30\nthird_party/mediapipe/tasks/cc/components/processors/image_preprocessing_graph.cc:150\nthird_party/mediapipe/tasks/cc/vision/image_classifier/image_classifier_graph.cc:147\nthird_party/mediapipe/tasks/cc/vision/image_classifier/image_classifier_graph.cc:115\nthird_party/mediapipe/framework/tool/subgraph_expansion.cc:309\nthird_party/mediapipe/framework/validated_graph_config.cc:503\nthird_party/mediapipe/framework/validated_graph_config.cc:365\nthird_party/mediapipe/framework/calculator_graph.cc:529\nresearch/drishti/app/pursuit/wasm/graph_utils.cc:95\n"
+    },
+    {
+      "browser": "webkit",
+      "version": "26.6",
+      "environment": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6 Safari/605.1.15",
+      "schemaVersion": 1,
+      "modelId": "coral-birds",
+      "source": "real",
+      "input": "synthetic",
+      "initializationMs": 200,
+      "firstInferenceMs": 142,
+      "warmInferenceMs": [
+        21,
+        21,
+        22,
+        21,
+        21,
+        20,
+        20,
+        20,
+        22,
+        21,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "warmP95Ms": 22,
+      "outputCount": 3,
+      "qualityEvaluated": false
+    }
+  ]
+}

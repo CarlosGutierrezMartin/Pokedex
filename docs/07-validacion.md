@@ -47,6 +47,16 @@ Registrar: completada/no, ayuda necesaria, duración, errores y comentario breve
 
 Eventos locales mínimos: session_started, collection_opened, scanner_opened, capture_taken, candidates_shown, observation_saved, recovery_used. Añadir source=demo/real, build y duraciones; no contenido sensible. Desactivar/limpiar desde ajustes.
 
+### Preparación de la sesión V0-UX
+1. Ejecutar `npm ci`, `npm run verify` y `npm run preview:local` con los certificados de la guía HTTPS. No descargar modelos para esta sesión.
+2. Abrir la demostración; en Ajustes crear un perfil vacío para cada participante, sin nombre real. En Safari usar Compartir → Añadir a pantalla de inicio y abrirla. Esperar «Interfaz UX preparada sin conexión». La prueba de instalación física se registra aparte, no se presume por el build.
+3. Activar voluntariamente «Registrar eventos locales». Usar una imagen sintética o un objeto, no fotos personales. Dar las cinco tareas descritas arriba sin señalar controles. Cronometrar cada tarea externamente y anotar ayuda, error y recuperación; los eventos de app no sustituyen esta observación.
+4. Para duda/permisos/espacio/paquete: desplegar el panel de escenarios en Ajustes. Son fallos simulados. Para primer descubrimiento usar perfil vacío; para repetición confirmar la misma especie dos veces. Sin GPS es el comportamiento predeterminado.
+5. Al terminar, registrar comentarios por pantalla en «Feedback y diagnóstico local». Exportar ese JSON y, solo si se necesita, la copia del cuaderno por separado. El diagnóstico no incluye automáticamente notas, fotos ni coordenadas; revisar comentarios antes de compartir. No hay envío remoto.
+6. Desactivar o borrar diagnóstico. Registrar en `docs/evidencia/ux.md` un resumen por código P01–P05: dispositivo/iOS/build, tareas completadas sin ayuda sobre cinco, duración, bloqueos y correcciones. No atribuir resultados a participantes aún no observados.
+
+La reapertura automatizada de T05 comprueba solo interfaz/demo e IndexedDB, con pestaña nueva y servidor del origen realmente apagado, verificando que ese origen ya no responde y no hay solicitudes a otros orígenes. No satisface A07/A10 de paquete de campo, desconexión física del teléfono, expulsión de caché o actualización de pesos.
+
 ## Evidencia compacta
 Al implementar, crear `docs/evidencia/ux.md` y `docs/evidencia/campo.md` solo cuando haya resultados. Incluir: commit/build, comandos y resultado resumido, capturas pertinentes, dispositivo, limitaciones, defectos corregidos y pendientes. Resultados cuantitativos en CSV/JSON pequeño si ayudan a reproducirlos. No transcripciones enormes ni capturas con datos personales innecesarios.
 

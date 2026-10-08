@@ -7,6 +7,8 @@ Proceso acotado: proponer 20–30 especies observables → revisar presencia reg
 
 Durante UX se admiten fixtures sintéticos identificados como tales. Para CAMPO cada ficha necesita identidad taxonómica, fuente y contenido revisado; si no existe foto licenciada, usar marcador neutro explícito. Una imagen generada no es evidencia biológica ni imagen de evaluación.
 
+Entrega UX: `src/test-support/demo-pack.json` identifica el paquete `fauna-ux-demo@demo-1`, su esquema, miembros fijos, procedencia interna y ausencia de modelos/cobertura real aprobada. Declara la situación de licencias sin atribuir permisos externos inventados. `check:data` comprueba versiones, referencias, bytes y SHA-256 de las fuentes de catálogo/ilustraciones; el build incorpora este contenido y la PWA lo conserva con la interfaz. Esta integridad de fuentes no es el instalador de paquetes CAMPO por staging. El catálogo curado de 20–30 fichas, sus fuentes/licencias externas y su cobertura de modelo siguen pendientes de T04.
+
 Registros externos: exigir identidad resoluble y coordenadas válidas; comprobar `occurrenceStatus`, problemas geográficos, incertidumbre, fecha y tipo de registro. Descartes y datos desconocidos quedan contabilizados. No tratar incertidumbre nula/desconocida como precisión perfecta. Un registro antiguo no prueba presencia actual. Cuadrícula y punto son geometrías diferentes.
 
 Normalizar sinónimos con UUID propio estable y mapa de identificadores externos. Conservar fuente/taxonomía/fecha consultadas; una clave externa puede cambiar. Deduplicar por fuente+identificador y revisar registros compartidos entre proveedores antes de sumar evidencia. No hacer ingesta masiva en V0.
@@ -53,6 +55,8 @@ Ejemplo normativo: una observación silvestre de A en Algete y otra doméstica d
 
 ## Persistencia y copias
 Preparar imagen/miniatura y validaciones antes de entrar en la transacción IndexedDB. Guardar observación, identificación vinculada y blobs de foto de forma atómica. No efectuar peticiones de red o inferencia dentro de la transacción.
+
+Implementación T03: los adaptadores exponen `Blob`, pero serializan foto y miniatura a `ArrayBuffer` antes de la transacción. La escritura directa de Blob falló en el WebKit probado (`Error preparing Blob/File data`); bytes, observación e identificación mantienen la misma atomicidad. La lectura admite también registros Blob anteriores, sin borrado ni migración destructiva. No usar base64 dentro de IndexedDB; se reserva para la copia JSON portable.
 
 Exportar un único archivo con manifiesto JSON, observaciones, preferencias y fotos; no incluir pesos de modelo que puedan volver a instalarse. Importación valida esquema, tamaños comprimidos/descomprimidos, rutas y referencias; límite inicial de 100 MiB por copia importada, error recuperable y sin modificar datos si falla. El exportador respeta los mismos límites y verifica que su copia sea reimportable; presupuestos de fotos mantienen margen. Restaurar en un perfil nuevo para evitar merges ambiguos. Verificar fotos y recuentos antes de activar el perfil. Borrado de perfil requiere confirmación y opción de exportar.
 

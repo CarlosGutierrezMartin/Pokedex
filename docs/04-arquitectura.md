@@ -51,3 +51,27 @@ La ruta futura preferida es React Native + Expo con builds de desarrollo y módu
 
 ## Datos y privacidad
 Sin analítica externa ni cuentas en V0. Fotos/GPS permanecen en el dispositivo; importar/exportar es una acción visible. Eventos de prueba guardan tipo de pantalla, duración y error, no fotos, coordenadas exactas ni texto sensible. Un perfil local no equivale a una cuenta autenticada segura: esa frontera se resuelve en V1.
+
+## Guía HTTPS Mac→iPhone (T00)
+
+El servidor sirve exclusivamente el build de `dist/` por el puerto 4173. Usar una red privada de confianza compartida por Mac e iPhone. T00 permite ver la bienvenida; instalación PWA y autonomía offline se validarán en tareas posteriores.
+
+1. Activar Node de `.nvmrc`, ejecutar `npm ci` y `npm run build`.
+2. Preparar `mkcert` en el Mac (`brew install mkcert`, si falta). Ejecutar `mkcert -install` implica añadir una autoridad local al llavero del sistema y puede pedir contraseña: es una operación que realiza o autoriza el propietario, no se ejecuta automáticamente con npm.
+3. Consultar la IP Wi-Fi del Mac en Ajustes del Sistema → Wi-Fi → Detalles → TCP/IP. Sustituir `192.168.1.20` por esa IP en el comando siguiente:
+
+   ```sh
+   mkdir -p .certs
+   mkcert -cert-file .certs/local.pem -key-file .certs/local-key.pem localhost 127.0.0.1 ::1 192.168.1.20
+   mkcert -CAROOT
+   ```
+
+4. Desde la carpeta indicada por el último comando, transferir **solo `rootCA.pem`** por AirDrop al iPhone. Nunca transferir `rootCA-key.pem`. Instalar el perfil descargado en Ajustes y activar su confianza completa en General → Información → Ajustes de confianza de certificados. Los nombres pueden variar según iOS. Procedimiento basado en la [documentación oficial de mkcert](https://github.com/FiloSottile/mkcert#mobile-devices).
+5. Ejecutar `npm run preview:local`. Aceptar acceso a la red local si macOS lo pide. Abrir `https://192.168.1.20:4173` en Safari. Debe abrir sin advertencias de certificado. No desactivar seguridad ni aceptar una excepción para dar la prueba por válida.
+6. Comprobar “Modo demo”, abrir/cerrar los detalles y registrar modelo, versión real de iOS y espacio disponible en Ajustes → General → Almacenamiento del iPhone. Esta prueba manual sigue pendiente hasta recibir resultados.
+
+Si cambia la IP, regenerar el certificado y usar la URL nueva. Un error de conexión puede deberse al firewall, aislamiento de clientes Wi-Fi o servidor parado. Un error TLS requiere comprobar IP y confianza del certificado. Si faltan los PEM, el script termina con un error e indica esta guía. Se admiten rutas alternativas mediante `HTTPS_CERT` y `HTTPS_KEY`.
+
+Detener con Ctrl+C al acabar. No abrir puertos del router ni usar túneles. Al retirar el entorno de pruebas, eliminar el perfil de confianza del iPhone y desinstalar la CA del Mac con `mkcert -uninstall`. No se modificó el llavero durante T00.
+
+Versiones: Node 24 pertenece a la línea LTS ([calendario oficial](https://github.com/nodejs/Release)); la versión exacta utilizada queda en `.nvmrc`. La compatibilidad de Vite se contrasta con sus [requisitos oficiales](https://vite.dev/guide/) y los metadatos `engines`/`peerDependencies` de npm. Router, Dexie, Zod y PWA se incorporarán cuando se implemente su primera capacidad; no son necesarios para esta bienvenida.
