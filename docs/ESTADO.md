@@ -1,11 +1,13 @@
 # Estado de ejecución
 
-Actualizado: 7 de octubre de 2026.
+Actualizado: 8 de octubre de 2026.
 
 ## Situación
-V0-UX implementada y verificada automáticamente: recorrido demo, perfiles separados, fotos, edición/borrado, copias, escenarios, feedback local y PWA de interfaz. T01 conserva dos candidatos fijados: Coral Birds ejecuta inferencia sintética en Mac; iNaturalist Small falla por normalización. Calidad e iPhone pendientes; V0-CAMPO no está aprobada. No se ha publicado ni inspeccionado Supabase.
+V0-UX implementada y verificada automáticamente: recorrido demo, perfiles separados, fotos, edición/borrado, copias, escenarios, feedback local y PWA de interfaz. T01 conserva dos candidatos fijados: Coral Birds ejecuta inferencia sintética en Mac; iNaturalist Small falla por normalización. Calidad e iPhone pendientes; V0-CAMPO no está aprobada. No se ha desplegado la app ni inspeccionado Supabase.
 
 Review V0-UX resuelto: implementación, lockfile, harness y evidencia incluidos en el índice de Git. Reproducidos instalación y verificación desde una copia limpia del índice, sin pesos, runtime ni dependencias previas del workspace.
+
+Código subido por petición del usuario a [CarlosGutierrezMartin/Pokedex](https://github.com/CarlosGutierrezMartin/Pokedex), rama `main`: implementación `e52a095`, integración del historial inicial remoto `a4083be` y push confirmado el 8 de octubre. La integración no cambia el árbol verificado. Dependencias, builds, fotos personales, certificados, runtime y pesos siguen excluidos; los manifiestos y scripts permiten preparar los recursos. GitHub contiene fuentes y evidencia, no un despliegue de la aplicación.
 
 ## Tareas
 
